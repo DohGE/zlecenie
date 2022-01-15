@@ -1,0 +1,66 @@
+@import "../../../../shared/utilities/variables/colors";
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+
+  &__answers {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    &--item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 20%;
+      height: 150px;
+      margin: 2% 0;
+      box-shadow: $box-shadow;
+      border-radius: $radius;
+      border: 1px solid black;
+    }
+
+    &--btn {
+      margin: 2% 0;
+    }
+  }
+}
+
+.text {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.btn-back {
+  z-index: 2;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+}
+
+app-loading-spinner {
+  height: 100%;
+  width: 100%;
+}

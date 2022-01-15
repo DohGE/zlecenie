@@ -1,0 +1,74 @@
+@import "../../../../shared/utilities/variables/colors.scss";
+@import "../../../../shared/utilities/media-breakpoints/breakpoints.scss";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $BG;
+}
+
+.container {
+  width: 50%;
+  height: 80%;
+  background-color: $BGcomponent;
+  box-shadow: $box-shadow;
+  border-radius: $radius;
+
+  &__achievements {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 60%;
+    &--items {
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+    }
+    &--title {
+      margin-top: 2% !important;
+    }
+  }
+  &__content {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    &--games {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+  }
+}
+
+.btn-back {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  @include media-breakpoint-down(sm) {
+    font-size: 10px;
+    padding: 0 8px;
+    line-height: 25px;
+  }
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: $radius;
+  margin: 10px;
+}
+
+@include media-breakpoint-down(md) {
+  p,
+  li {
+    font-size: 10px;
+  }
+  mat-card-title {
+    font-size: 16px;
+  }
+}

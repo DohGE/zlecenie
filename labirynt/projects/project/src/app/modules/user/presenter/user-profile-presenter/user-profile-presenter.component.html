@@ -1,0 +1,36 @@
+<mat-card class="container">
+  <mat-card-title>Profil:</mat-card-title>
+  <mat-divider inset></mat-divider>
+  <mat-card-content class="container__content">
+    <p>Nick: {{ user?.name }}</p>
+    <p>E-mail: {{ user?.email }}</p>
+    <p>Twoje gry:</p>
+    <ul class="container__content--games">
+      <li *ngIf="!user?.games">Nie masz jeszcze żadnych gier!</li>
+      <li *ngFor="let game of user?.games; let i = index">{{ game?.name }}</li>
+    </ul>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-content class="container__achievements">
+    <mat-card-title class="container__achievements--title"
+      >Ilość osiągnięć: {{ user?.achievements?.length }}</mat-card-title
+    >
+    <p *ngIf="!user?.achievements">Nie posiadasz żadnych osiągnięć!</p>
+    <div class="container__achievements--items">
+      <img
+        *ngFor="let achLink of user?.achievements; let i = index"
+        src="{{ achLink }}"
+        alt="Osiągnięcie {{ i + 1 }}"
+      />
+    </div>
+  </mat-card-content>
+</mat-card>
+<button
+  mat-raised-button
+  color="primary"
+  type="button"
+  (click)="onBack()"
+  class="btn-back"
+>
+  Wróć
+</button>

@@ -1,0 +1,81 @@
+@import "../../../../shared/utilities/variables/colors.scss";
+@import "../../../../shared/utilities/media-breakpoints/breakpoints.scss";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  font-size: 1.2em;
+}
+
+.container {
+  width: 50%;
+  height: 70%;
+  background-color: $BGcomponent;
+  border-radius: $radius;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  &__btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+mat-form-field {
+  width: 60%;
+}
+
+@include media-breakpoint-down(lg) {
+  .container {
+    width: 40%;
+    height: 60%;
+  }
+  mat-form-field {
+    font-size: 0.8em !important;
+    width: 70%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .container {
+    width: 50%;
+    height: 60%;
+  }
+  mat-form-field {
+    font-size: 12px !important;
+    width: 80%;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    width: 70%;
+    height: 50%;
+  }
+}
+
+button {
+  @include media-breakpoint-down(xs) {
+    line-height: 15px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+  @include media-breakpoint-down(lg) {
+    line-height: 20px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+}

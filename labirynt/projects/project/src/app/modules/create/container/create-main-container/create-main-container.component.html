@@ -1,0 +1,17 @@
+<app-create-main-presenter
+  (back)="back()"
+  (onAddStart)="addStart()"
+  (onAddBlock)="addBlock()"
+  (onAddEnd)="addEnd()"
+  (onDeleteBlock)="deleteBlock($event)"
+  (saveEdit)="saveEditing($event)"
+  (saveBlock)="saveBlock($event)"
+  (reDrawline)="reDrawLine()"
+  (drawLine)="drawLine($event)"
+  (leaderLinePosition)="leaderLinePosition()"
+  (color)="getColor()"
+  (save)="save($event)"
+  (notification)="onNotification()"
+  [blocks]="blocks$ | async"
+  [loading]="loading$ | async"
+></app-create-main-presenter>

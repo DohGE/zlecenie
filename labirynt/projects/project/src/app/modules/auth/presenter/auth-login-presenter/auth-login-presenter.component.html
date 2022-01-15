@@ -1,0 +1,45 @@
+<mat-card class="container" *ngIf="!changeFade">
+  <mat-card-title>Logowanie</mat-card-title>
+  <mat-card-content class="container__form" [formGroup]="form">
+    <mat-form-field appearance="fill" class="container__form--items">
+      <mat-label>Podaj e-mail</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="form.controls.email.invalid">
+        Podany email jest nieprawidłowy!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="container__form--items">
+      <mat-label>Podaj hasło</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+      />
+      <mat-error *ngIf="!!form.controls.password.errors?.minlength"
+        >Podane hasło jest za krótkie!</mat-error
+      >
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-error *ngIf="form.invalid && form.touched"
+    >Formularz został wypełniony nieprawidłowo!</mat-error
+  >
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <button mat-button (click)="onLogin()">Zaloguj się</button>
+    <button mat-button (click)="change()">Zarejestruj się</button>
+  </mat-card-actions>
+</mat-card>
+<app-auth-sign-up-presenter
+  *ngIf="changeFade"
+  (changeFade)="change()"
+  (register)="onRegister($event)"
+></app-auth-sign-up-presenter>

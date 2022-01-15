@@ -1,0 +1,47 @@
+<div class="info" *ngIf="!startBlock?.name">
+  <h1 class="text">Nie wybrano żadnej gry!</h1>
+</div>
+<div
+  class="play"
+  [ngStyle]="{ 'background-image': 'url(' + background + ')' }"
+  *ngIf="startBlock?.name"
+>
+  <h1 *ngIf="startBlock?.start" class="text">
+    {{ startBlock?.name }}
+  </h1>
+  <h2 class="text">{{ startBlock?.question }}</h2>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    (click)="onEndBack(startBlock?.achLink)"
+    class="play__answers--btn"
+    *ngIf="startBlock?.end"
+  >
+    Koniec
+  </button>
+  <div class="play__answers">
+    <div class="play__answers--item" *ngFor="let block of blocks">
+      <h3 class="text">{{ block?.name }}</h3>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="onSubmit(block)"
+        class="play__answers--btn"
+      >
+        Zatwierdź odpowiedź
+      </button>
+    </div>
+  </div>
+</div>
+<button
+  mat-raised-button
+  color="primary"
+  type="button"
+  (click)="onBack()"
+  class="btn-back"
+>
+  Wróć
+</button>
+<app-loading-spinner *ngIf="loading"></app-loading-spinner>

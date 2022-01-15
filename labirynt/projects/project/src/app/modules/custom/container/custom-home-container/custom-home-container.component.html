@@ -1,0 +1,5 @@
+<app-home-table
+  [games]="games$ | async"
+  (back)="onBack()"
+  (start)="onStart($event)"
+></app-home-table>

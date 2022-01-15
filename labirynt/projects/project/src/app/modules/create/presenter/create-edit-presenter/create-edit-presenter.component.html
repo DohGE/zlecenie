@@ -1,0 +1,73 @@
+<div class="container" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>{{
+      editingBlock.start ? "Wpisz notatkę powitalną" : "Podaj odpowiedź"
+    }}</mat-label>
+    <input
+      matInput
+      formControlName="name"
+      placeholder="{{ editingBlock.start ? 'Notatka powitalna' : 'Odpowiedź' }}"
+    />
+    <mat-error *ngIf="form.controls.name.invalid && form.controls.name.touched"
+      >Uzupełnij pole w infromacje!</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{
+      editingBlock.end ? "Podaj opis końca gry" : "Podaj pytanie"
+    }}</mat-label>
+    <input
+      matInput
+      formControlName="question"
+      placeholder="{{ editingBlock.end ? 'Opis końca gry' : 'Pytanie' }}"
+      type="text"
+    />
+    <mat-error
+      *ngIf="form.controls.question.invalid && form.controls.question.touched"
+      >Uzupełnij pole w infromacje!</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{
+      editingBlock.end
+        ? "Podaj link do osiągnięcia"
+        : "Podaj ilość odpowiedzi(max 10)"
+    }}</mat-label>
+    <input
+      matInput
+      formControlName="answers"
+      placeholder="{{
+        editingBlock.end ? 'Link do osiągnięcia' : 'Ilość odpowiedzi(max 10)'
+      }}"
+      [type]="editingBlock.end ? 'text' : 'number'"
+    />
+    <mat-error
+      *ngIf="form.controls.answers.invalid && form.controls.answers.touched"
+      >{{
+        form.controls.answers.errors?.pattern
+          ? "Nieprawidłowa ilość odpowiedzi!"
+          : "Uzupełnij pole w infromacje!"
+      }}</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Podaj link do tła</mat-label>
+    <input
+      matInput
+      formControlName="link"
+      placeholder="Link do tła"
+      type="text"
+    />
+    <mat-error *ngIf="form.controls.link.invalid && form.controls.link.touched"
+      >Uzupełnij pole w infromacje!</mat-error
+    >
+  </mat-form-field>
+  <div class="container__btns">
+    <button mat-raised-button color="primary" type="button" (click)="onSave()">
+      Zapisz
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="onBack()">
+      X
+    </button>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+@import "../../../../shared/utilities/variables/colors";
+@import "../../../../shared/utilities/media-breakpoints/breakpoints.scss";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $BG;
+}
+
+.container {
+  width: 40%;
+  height: 50%;
+  background-color: $BGcomponent;
+  box-shadow: $box-shadow;
+  border-radius: $radius;
+  &__form {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    &--items {
+      width: 60%;
+      height: 40%;
+      font-size: 1.2em;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .container {
+    width: 70%;
+    height: 60%;
+    &__form {
+      &--items {
+        font-size: 1em;
+        width: 50%;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    width: 70%;
+    height: 50%;
+    &__form {
+      &--items {
+        font-size: 0.9em;
+        width: 70%;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="container" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Podaj nazwę gry(min. 5 znaków)</mat-label>
+    <input
+      matInput
+      formControlName="name"
+      placeholder="Nazwa gry(min. 5 znaków)"
+      type="text"
+    />
+    <mat-error *ngIf="form.controls.name.invalid && form.controls.name.touched"
+      >Uzupełnij pole prawidłowo!</mat-error
+    >
+  </mat-form-field>
+  <div class="btns">
+    <button mat-raised-button color="primary" type="button" (click)="onBack()">
+      Wróć
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="onSave()">
+      Zapisz
+    </button>
+  </div>
+  <mat-error *ngIf="error && form.invalid"
+    >Formularz jest wypełniony nieprawidłowo!</mat-error
+  >
+</div>

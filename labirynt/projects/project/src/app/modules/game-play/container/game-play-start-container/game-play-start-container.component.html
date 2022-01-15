@@ -1,0 +1,8 @@
+<app-game-play-start-presenter
+  [startBlock]="startBlock"
+  [blocks]="blocks"
+  [loading]="loading | async"
+  (submit)="onSubmit($event)"
+  (back)="onBack()"
+  (endBack)="onEndBack($event)"
+></app-game-play-start-presenter>

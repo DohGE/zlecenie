@@ -1,0 +1,97 @@
+@import "../../utilities/variables/colors.scss";
+@import "../../utilities/media-breakpoints/breakpoints.scss";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $BG;
+  @include media-breakpoint-down(xs) {
+    font-size: 6px !important;
+  }
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $BGcomponent;
+  box-shadow: $box-shadow;
+  border-radius: $radius;
+  @include media-breakpoint-down(sm) {
+    width: 95%;
+    font-size: 8px;
+  }
+}
+
+.table {
+  background-color: $BGcomponent;
+  width: 100%;
+  overflow-y: auto;
+  &__last {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @include media-breakpoint-down(sm) {
+    &__btn {
+      font-size: 10px;
+      padding: 0 8px;
+      line-height: 30px;
+    }
+    .cdk-column {
+      &-name {
+        flex: 1 0 35%;
+        font-size: 10px !important;
+      }
+      &-blocks {
+        flex: 1 0 15%;
+        font-size: 10px !important;
+      }
+      &-date {
+        flex: 1 0 40%;
+        font-size: 10px !important;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    &__btn {
+      font-size: 8px;
+      padding: 0 3px;
+      line-height: 15px;
+    }
+    .cdk-column {
+      &-name {
+        flex: 1 0 25%;
+        font-size: 8px !important;
+        padding-left: 2px;
+      }
+      &-blocks {
+        flex: 1 0 15%;
+        font-size: 8px !important;
+      }
+      &-date {
+        flex: 1 0 55%;
+        font-size: 8px !important;
+      }
+    }
+  }
+}
+
+.btn-back {
+  z-index: 2;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  @include media-breakpoint-down(sm) {
+    font-size: 10px;
+    padding: 0 8px;
+    line-height: 30px;
+  }
+}

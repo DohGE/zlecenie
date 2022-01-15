@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Twoje gry:</h1>
+  <h2 *ngIf="!games?.data.length">Jeszcze nie posiadasz żadnych gier!</h2>
+  <table
+    mat-table
+    [dataSource]="games"
+    matSort
+    class="table"
+    *ngIf="games?.data.length"
+  >
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Nazwa gry</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="blocks">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Ilość bloków</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">
+        {{ element.blocks.length }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Data stworzenia</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element" class="table__last">
+        {{ element.date }}
+        <button
+          mat-raised-button
+          color="accent"
+          type="button"
+          (click)="onStart(element)"
+          class="table__btn"
+        >
+          Zagraj
+        </button></mat-cell
+      >
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </table>
+</div>
+<button
+  mat-raised-button
+  color="primary"
+  type="button"
+  (click)="onBack()"
+  class="btn-back"
+>
+  Wróć
+</button>
